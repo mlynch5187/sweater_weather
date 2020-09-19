@@ -1,8 +1,8 @@
 class OpenWeatherService
   def self.forecast(coordinates)
-    Faraday.get('data/2.5/onecall') do |f|
-      f.params[:lat] = coordinates[:lat]
-      f.params[:lon] = coordinates[:lon]
+    response = conn.get('data/2.5/onecall') do |f|
+      f.params[:lat] = coordinates[:results][0][:locations][0][:latLng][:lat]
+      f.params[:lon] = coordinates[:results][0][:locations][0][:latLng][:lng]
       f.params[:exclude] = 'minutely'
       f.params[:appid] = ENV['OPENWEATHER_KEY']
     end

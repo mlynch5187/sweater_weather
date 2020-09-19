@@ -1,7 +1,6 @@
 class MapQuestService
-
   def self.longitude_latitude(location)
-    conn.get('address') do |f|
+    response = conn.get('geocoding/v1/address') do |f|
       f.params[:key] = ENV['MAPQUEST_KEY']
       f.params[:location] = location
     end
@@ -9,6 +8,6 @@ class MapQuestService
   end
 
   def self.conn
-    Faraday.new('http://www.mapquestapi.com/geocoding/v1/')
+    Faraday.new('http://www.mapquestapi.com/')
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Openweather API' do
+RSpec.describe 'Openweather Forecast Service' do
   it 'Retrieves current weather conditions' do
     params = { lat: 39.738453, lon: -104.984853, exclude: "minutely" }
     response = Faraday.get("https://api.openweathermap.org/data/2.5/onecall") do |f|
