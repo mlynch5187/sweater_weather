@@ -12,7 +12,6 @@ gem 'faraday'
 gem 'fast_jsonapi'
 
 group :test do
-  gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
   gem 'shoulda-matchers'
@@ -20,6 +19,7 @@ end
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 4.0.1'
   gem 'pry'
 end
 
