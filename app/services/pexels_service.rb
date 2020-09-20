@@ -6,5 +6,4 @@ class PexelsService < BaseService
     end
     json(response)[:photos][0]
   end
-  #add photographer and photographer pare response[:photos][0][:photographer]
 end
