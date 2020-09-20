@@ -4,7 +4,7 @@ class PexelsService < BaseService
       f.params[:query] = location
       f.params[:per_page] = 3
     end
-    json(response)[:photos][0][:src][:large]
+    json(response)[:photos][0]
   end
   #add photographer and photographer pare response[:photos][0][:photographer]
 end
