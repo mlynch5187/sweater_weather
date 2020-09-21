@@ -4,6 +4,7 @@ class ClimbingRouteService < BaseService
       f.params[:key] = ENV['TRAILS_KEY']
       f.params[:lat] = lat
       f.params[:lon] = lon
+      f.params[:maxDistance] = 15
     end
     json(response)
   end

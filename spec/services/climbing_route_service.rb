@@ -11,15 +11,15 @@ RSpec.describe 'Climbing Route Service' do
     lon = lat_lon_response[:lng]
 
     routes_response = ClimbingRouteService.new.local_routes(lat, lon)
-
+    require "pry"; binding.pry
   end
 end
 
 # current forecast for the start location
-# name of the route
-# type of each route
-# rating of each route
-# location of each route
+# !!!name of the route
+# !!!type of each route
+# !!!rating of each route
+# !!!location of each route
 # estimated travel time to each route
 # Your response should be in the format below:
 # {
