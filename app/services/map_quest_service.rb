@@ -7,12 +7,13 @@ class MapQuestService < BaseService
     json(response)[:results][0][:locations][0][:latLng]
   end
 
-  def distance(location_params, start_lat, start_lon)
+  def distance(latlong)
     response = conn('http://www.mapquestapi.com/directions/v2').get('/route') do |f|
       f.params[:key] = ENV['MAPQUEST_KEY']
-      f.params[:from] = start_lat + start_lon
-      f.params[:to] = end_lat + end_lon
+      f.params[:from] = location_params
+      f.params[:to] = latLng
     end
+    require "pry"; binding.pry
     json(response)
   end
 end

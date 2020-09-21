@@ -3,8 +3,7 @@ class ClimbingRoute
 
   def initialize(route_info)
     @id = nil
-    @lat = route_info[:latitude]
-    @lon = route_info[:longitude]
+    @latlong = route_info[:latitude] + route_info[:longitude]
     @name = route_info[:name]
     @type = route_info[:type]
     @location = route_info[:location]
@@ -16,7 +15,7 @@ class ClimbingRoute
     conditions[:current][:weather][0][:description]
   end
 
-  def distance
-    miles = DistanceService.new.get_distance(@lat, @lon)
+  def distance(@latlong)
+    miles = Mapquest.new.distance(@latlong)
   end
 end
