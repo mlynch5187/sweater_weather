@@ -9,7 +9,6 @@ class ClimbingRoute
     @type = route_info[:type]
     @location = route_info[:location]
     @current_weather = current_weather
-    # @distance
   end
 
   def current_weather
@@ -21,5 +20,3 @@ class ClimbingRoute
     miles = DistanceService.new.get_distance(@lat, @lon)
   end
 end
-
-# {:lat=>36.147506, :lng=>-82.413996}
