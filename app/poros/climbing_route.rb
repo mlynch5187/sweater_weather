@@ -16,6 +16,10 @@ class ClimbingRoute
     conditions = ForecastService.new.forecast(@lat, @lon)
     conditions[:current][:weather][0][:description]
   end
+
+  def distance
+    miles = DistanceService.new.get_distance(@lat, @lon)
+  end
 end
 
 # {:lat=>36.147506, :lng=>-82.413996}
