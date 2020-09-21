@@ -1,4 +1,4 @@
 class ClimbingRoutesSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :weather, :name, :type, :location, :travel_time
+  attributes :id, :current_weather, :name, :type, :location, :distance
 end

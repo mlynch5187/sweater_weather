@@ -1,9 +1,16 @@
 class ClimbingRoute
-  attr_reader :id, :current_weather
+  attr_reader :id
 
-  def initialize(weather_forecast, routes)
+  def initialize(route_info)
     @id = nil
-    @current_weather = weather_forecast[:current][:weather][0][:description]
-    # @name =
+    # @current_weather = weather_forecast[:current][:weather][0][:description]
+    @name = route_info[:name]
+    @type = route_info[:type]
+    @location = route_info[:location]
+    # @distance
   end
+  #
+  # def current_weather(weather_forecast)
+  #   # require "pry"; binding.pry
+  # end
 end

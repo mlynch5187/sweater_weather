@@ -11,7 +11,6 @@ RSpec.describe 'Climbing Route Service' do
     lon = lat_lon_response[:lng]
 
     routes_response = ClimbingRouteService.new.local_routes(lat, lon)
-    require "pry"; binding.pry
   end
 end
 

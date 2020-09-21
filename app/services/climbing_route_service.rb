@@ -6,6 +6,9 @@ class ClimbingRouteService < BaseService
       f.params[:lon] = lon
       f.params[:maxDistance] = 15
     end
-    json(response)
+    data = json(response)[:routes]
+    data.map do |route_info|
+      ClimbingRoute.new(route_info)
+    end
   end
 end
