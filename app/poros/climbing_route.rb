@@ -1,5 +1,5 @@
 class ClimbingRoute
-  attr_reader :id, :lat, :lon, :current_weather, :name, :type, :location, :distance
+  attr_reader :id, :lat, :lon, :current_weather, :name, :type, :location, :distance, :start
 
   def initialize(route_info, start_location)
     @id = nil
@@ -10,7 +10,7 @@ class ClimbingRoute
     @location = route_info[:location]
     @current_weather = current_weather
     @distance = distance
-    @start_location = start_location
+    @start = start_location[0..1]
   end
 
   def current_weather
@@ -19,10 +19,10 @@ class ClimbingRoute
   end
 
   def distance
-    start_location = @start_location
+    start_param = @start
     end_lat = @lat
     end_lon = @lon
     end_latlon = end_lat,end_lon
-    miles = MapQuestService.new.distance(start_location, end_latlon)
+    miles = MapQuestService.new.distance(start_param, end_latlon)
   end
 end

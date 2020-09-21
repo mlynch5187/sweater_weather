@@ -8,10 +8,11 @@ class MapQuestService < BaseService
   end
 
   def distance(start_location, end_latlon)
+    require "pry"; binding.pry
     response = conn('http://www.mapquestapi.com/directions/v2').get('/route') do |f|
       f.params[:key] = ENV['MAPQUEST_KEY']
       f.params[:from] = start_location
-      f.params[:to] = end_latLng
+      f.params[:to] = end_latlon
     end
     json(response)
   end
