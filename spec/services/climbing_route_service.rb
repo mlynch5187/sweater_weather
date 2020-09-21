@@ -1,17 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe 'Trail Service' do
+RSpec.describe 'Climbing Route Service' do
   it 'Retrieves route information based upon start location' do
-    response = TrailService.new.local_routes("erwin,tn")
+    lat_lon_response = MapQuestService.new.longitude_latitude("erwin,tn")
 
-    # expect(response[:lat]).to eq(39.738453)
-    # expect(response[:lng]).to eq(-104.984853)
+    expect(lat_lon_response[:lat]).to eq(36.147506)
+    expect(lat_lon_response[:lng]).to eq(-82.413996)
+
+    lat = lat_lon_response[:lat]
+    lon = lat_lon_response[:lng]
+
+    routes_response = ClimbingRouteService.new.local_routes(lat, lon)
+
   end
 end
-
-
-
-
 
 # current forecast for the start location
 # name of the route
