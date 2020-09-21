@@ -1,5 +1,6 @@
 class ClimbingRouteService < BaseService
   def local_routes(lat, lon)
+    start_location = lat,lon
     response = conn('https://www.mountainproject.com').get('/data/get-routes-for-lat-lon') do |f|
       f.params[:key] = ENV['TRAILS_KEY']
       f.params[:lat] = lat
@@ -8,7 +9,7 @@ class ClimbingRouteService < BaseService
     end
     data = json(response)[:routes]
     data.map do |route_info|
-      ClimbingRoute.new(route_info)
+      ClimbingRoute.new(route_info, start_location)
     end
   end
 end
