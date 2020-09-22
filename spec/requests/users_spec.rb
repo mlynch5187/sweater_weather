@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Users spec" do
-  it "can create a new user in DB" do
+  xit "can create a new user in DB" do
     create(:user)
 
     params = { "email": "whatever@example.com",
@@ -46,6 +46,8 @@ describe "Users spec" do
                "password_confirmation": "password9" }
 
     post "/api/v1/users", params: params
+
+    json = JSON.parse(response.body, symbolize_names: true)
 
     expect(json[:status]).to eq(400)
     expect(json[:errors][1]).to eq("Password confirmation doesn't match Password")

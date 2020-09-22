@@ -17,5 +17,4 @@ ActiveRecord::Schema.define(version: 2020_09_20_181430) do
     t.string "password_digest"
     t.string "api_key"
   end
-
 end
