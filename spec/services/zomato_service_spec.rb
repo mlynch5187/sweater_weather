@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe ZomatoService, :vcr do
+RSpec.describe ZomatoService do
   before(:each) do
-    location = { city: 'Denver', state: 'CO' }
+    location = "denver,co"
     @zomato_service = ZomatoService.new(location)
   end
 
@@ -10,10 +10,10 @@ RSpec.describe ZomatoService, :vcr do
     expect(@zomato_service).to be_an_instance_of(ZomatoService)
   end
 
-  # it 'can get end city' do
-  # #  end_city = @service.end_city
-  # #  expect(end_city).to eq('pueblo,co')
-  # # end
+  it 'can get city id' do
+   city_id = @zomato_service.city_id
+   expect(city_id).to eq(305)
+  end
 end
 
 # Your API will return:
