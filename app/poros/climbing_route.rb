@@ -9,8 +9,8 @@ class ClimbingRoute
     @type = route_info[:type]
     @location = route_info[:location]
     @current_weather = current_weather
+    @start = start_location
     @distance = distance
-    @start = start_location[0..1]
   end
 
   def current_weather
