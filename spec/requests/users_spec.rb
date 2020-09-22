@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe "Users spec" do
-  xit "can create a new user in DB" do
-    create(:user)
+  it "can create a new user in DB" do
+    user = create(:user)
 
     params = { "email": "whatever@example.com",
                 "password": "password",
@@ -33,8 +33,8 @@ describe "Users spec" do
 
     json = JSON.parse(response.body, symbolize_names: true)
 
-    expect(json[:status]).to eq(400)
     expect(json[:errors][0]).to eq("Email has already been taken")
+    expect(json[:status]).to eq(400)
   end
 
   it "User email must be unique" do
@@ -49,7 +49,7 @@ describe "Users spec" do
 
     json = JSON.parse(response.body, symbolize_names: true)
 
-    expect(json[:status]).to eq(400)
     expect(json[:errors][1]).to eq("Password confirmation doesn't match Password")
+    expect(json[:status]).to eq(400)
   end
 end
