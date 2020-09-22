@@ -9,6 +9,12 @@ class BaseService
     end
   end
 
+  def zomato_conn(uri)
+    Faraday.new(uri) do |f|
+      f.headers['user-key'] = ENV['ZOMATO_API']
+    end
+  end
+
   def json(response)
     JSON.parse(response.body, symbolize_names: true)
   end
