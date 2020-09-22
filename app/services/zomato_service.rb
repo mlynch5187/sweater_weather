@@ -1,11 +1,14 @@
 class ZomatoService < BaseService
-  def initialize(search_params)
+
+  def initialize(end_city)
+    @end_city = end_city
   end
 
-  def not_sure_yet(search_params)
-    response = zomato_conn('https://developers.zomato.com/api/v2.1').get('') do |f|
-      f.params[''] = ''
+  def city_id
+      response = zomato_conn('https://developers.zomato.com/api/v2.1').get('/cities') do |c|
+        c.params['q'] = @end_city
+        c.params['count'] = 1
+      end
+      json(response)
     end
-    json(response)
-  end
 end
