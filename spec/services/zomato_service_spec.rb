@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.describe ZomatoService do
   before(:each) do
-    location = "denver,co"
-    @zomato_service = ZomatoService.new(location)
+    start_city = "denver,co"
+    # end_city = "pueblo,co"
+    # search_term = 'italian'
+    @zomato_service = ZomatoService.new(start_city, end_city, search_term)
   end
 
   it 'is an instance of Zomato Service' do
@@ -14,6 +16,11 @@ RSpec.describe ZomatoService do
    city_id = @zomato_service.city_id
    expect(city_id).to eq(305)
   end
+
+  # it 'can get final final_destination name' do
+  #  city = @zomato_service.final_destination
+  #  expect(city).to eq(305)
+  # end
 end
 
 # Your API will return:
