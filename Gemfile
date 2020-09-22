@@ -16,6 +16,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'shoulda-matchers'
+  gem 'simplecov'
 end
 
 group :development, :test do
@@ -24,7 +25,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
   gem 'pry'
   gem 'faker'
-  gem 'simplecov'
 end
 
 group :development do
