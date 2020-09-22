@@ -2,9 +2,7 @@ require 'rails_helper'
 
 describe 'When a user logs in' do
   it 'A new session is created' do
-    api_key = '123456789112'
-
-    User.create(email: 'whatever@example.com', password: 'password', api_key: api_key)
+    User.create(email: 'whatever@example.com', password: 'password', api_key: 123456789112)
 
     params = { 'email': 'whatever@example.com',
                'password': 'password' }
@@ -19,13 +17,11 @@ describe 'When a user logs in' do
 
     expect(json[:data]).to_not be_empty
     expect(json[:data][:attributes][:email]).to eq('whatever@example.com')
-    expect(json[:data][:attributes][:api_key]).to eq(api_key)
+    expect(json[:data][:attributes][:api_key]).to eq('123456789112')
   end
 
   it 'Requires valid credentials' do
-    api_key = '123456789112'
-
-    User.create(email: 'whatever@example.com', password: 'password', api_key: api_key)
+    User.create(email: 'whatever@example.com', password: 'password', api_key: 123456789112)
 
     params = { 'email': 'whatever@example.com',
                'password': 'wrongpassword' }
