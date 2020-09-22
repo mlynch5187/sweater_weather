@@ -1,10 +1,7 @@
 class Api::V1::BackgroundsController < ApplicationController
 
   def index
-    city_images = PexelsService.new.images(params[:location])
+    background_info = PexelsService.new.images(params[:location])
+    render json: BackgroundSerializer.new(Background.new(background_info))
   end
-
-  # def retrieve_city(location)
-  #   location.split(/[,]/).first
-  # end
 end
