@@ -7,14 +7,16 @@ class MapQuestService < BaseService
     json(response)[:results][0][:locations][0][:latLng]
   end
 
-  def distance(start_location, end_latlon)
-    start = start_location.join(',')
-    destination = end_latlon.join(',')
+  def trip_duration(start_lat, start_lon, local_restaurant)
+    end_lat = local_restaurant[:location][:latitude]
+    end_lon = local_restaurant[:location][:longitude]
+    finish = end_lat + "," + end_lon
+    start = start_lat.to_s + "," + start_lon.to_s
     response = conn('http://www.mapquestapi.com/directions/v2/').get('route') do |f|
       f.params[:key] = ENV['MAPQUEST_KEY']
       f.params[:from] = start
-      f.params[:to] = destination
+      f.params[:to] = finish
     end
-    json(response)
+    json(response)[:route][:formattedTime]
   end
 end
