@@ -20,7 +20,6 @@ class ZomatoService < BaseService
     f.params[:count] = 1
     f.params[:radius] = 5
     end
-    require "pry"; binding.pry
    json(response)[:restaurants][0][:restaurant]
   end
 end
