@@ -8,7 +8,6 @@ APIs Utilized: OpenWeather API, MapQuest API, Pexels API
 Versions Used: Ruby 2.5.3, Rails 5.1.7
 APIs Utilized: OpenWeather API, MapQuest API, Pexels API
 
-Install
 - git clone git@github.com:mlynch5187/sweater-weather.git
 - cd sweater_weather
 - bundle install
