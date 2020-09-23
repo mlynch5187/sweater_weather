@@ -1,4 +1,4 @@
-class Trip
+class RoadTrip
   attr_reader :id, :origin, :destination, :travel_time, :arrival_forecast
 
   def initialize(route, forecast)

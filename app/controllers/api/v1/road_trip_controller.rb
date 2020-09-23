@@ -1,8 +1,8 @@
-class Api::V1::TripController < ApplicationController
+class Api::V1::RoadTripController < ApplicationController
   def create
     trip_params = JSON.parse(request.body.read)
     if api_verification(trip_params)
-      render json: TripSerializer.new(road_trip)
+      render json: RoadTripSerializer.new(road_trip)
     else
       render json: ErrorSerializer.failure
     end

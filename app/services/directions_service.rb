@@ -1,9 +1,9 @@
 class DirectionsService < BaseService
   def call(params)
-    response = conn('https://maps.googleapis.com/').get('maps/api/directions/json') do |f|
-      f.params[:origin] = params[:origin]
-      f.params[:origin] = params[:destination]
+    response = conn('http://www.mapquestapi.com/').get('directions/v2/route') do |f|
       f.params[:key] = ENV['MAPQUEST_KEY']
+      f.params[:from] = params[:origin]
+      f.params[:to] = params[:destination]
     end
     json(response)
     Directions.new(response)
