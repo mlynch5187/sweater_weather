@@ -20,7 +20,7 @@ describe 'When a user logs in' do
     expect(json[:data][:attributes][:api_key]).to eq('123456789112')
   end
 
-  it 'Requires valid credentials' do
+  it 'Requires valid password' do
     User.create(email: 'whatever@example.com', password: 'password', api_key: 123456789112)
 
     params = { 'email': 'whatever@example.com',

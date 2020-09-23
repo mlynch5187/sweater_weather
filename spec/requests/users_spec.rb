@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Users spec" do
-  it "can create a new user in DB" do
+  it "Can create a new user in DB" do
     user = create(:user)
 
     params = { "email": "whatever@example.com",
@@ -37,7 +37,7 @@ describe "Users spec" do
     expect(json[:status]).to eq(400)
   end
 
-  it "User email must be unique" do
+  it "User password must be valid" do
 
     create(:user, email: "123@example.com")
 
