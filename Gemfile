@@ -25,6 +25,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
   gem 'pry'
   gem 'faker'
+  gem 'rubocop'
 end
 
 group :development do

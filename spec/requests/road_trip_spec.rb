@@ -4,9 +4,10 @@ describe 'A Road Trip' do
   xit 'Has attributes' do
     User.create(email: 'email@example.com', password: 'password', api_key: 123456789112)
 
-    params = { "origin": "Denver,CO",
-               "destination": "Pueblo,CO",
-               "api_key": 123456789112 }
+    params = {  "id": nil,
+                "from": "Denver,CO",
+                "to": "Pueblo,CO",
+                "api_key": 123456789112 }
 
     post '/api/v1/road_trip', params: params.to_json
 
