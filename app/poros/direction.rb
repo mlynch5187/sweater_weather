@@ -16,26 +16,26 @@ class Direction
   end
 
   def route_start_location(route_attributes)
-    route_attributes[:routes][0][:legs][0][:start_address]
+    route_attributes[:route][0][:legs][0][:start_address]
   end
 
   def route_end_location(route_attributes)
-    route_attributes[:routes][0][:legs][0][:end_address]
+    route_attributes[:route][0][:legs][0][:end_address]
   end
 
   def route_start_coords(route_attributes)
-    route_attributes[:routes][0][:legs][0][:start_location]
+    route_attributes[:route][0][:legs][0][:start_location]
   end
 
   def route_end_coords(route_attributes)
-    route_attributes[:routes][0][:legs][0][:end_location]
+    route_attributes[:route][0][:legs][0][:end_location]
   end
 
   def route_time_unix(route_attributes)
-    route_attributes[:routes][0][:legs][0][:duration][:value]
+    route_attributes[:route][0][:legs][0][:duration][:value]
   end
 
   def route_travel_time(route_attributes)
-    route_attributes[:routes][0][:legs][0][:duration][:text]
+    route_attributes[:route][0][:legs][0][:duration][:text]
   end
 end
