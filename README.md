@@ -18,7 +18,7 @@ APIs Utilized: OpenWeather API, MapQuest API, Pexels API
 
 ## API Documentation
 
-### Get a location's weather forecast
+### Get A Location's Weather Forecast
 
 GET /api/v1/forecast
 
