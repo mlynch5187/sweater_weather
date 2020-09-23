@@ -1,5 +1,4 @@
 class ResultsFacade
-
   def initialize(start_lat, start_lon)
     @start_lat = start_lat
     @start_lon = start_lon

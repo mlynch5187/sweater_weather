@@ -5,7 +5,7 @@ class Api::V1::ForecastController < ApplicationController
     render json: ForecastSerializer.new(Forecast.new(forecast))
   end
 
-  def private
+  private
 
   def coordinates
     MapQuestService.new.longitude_latitude(params[:location])

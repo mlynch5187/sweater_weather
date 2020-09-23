@@ -740,6 +740,8 @@
           null,
           null,
           1,
+          null,
+          1,
           2,
           null,
           null
@@ -748,7 +750,6 @@
       "/Users/michaelalexlynch/turing/3.5module/projects/sweater_weather/app/facades/results_facade.rb": {
         "lines": [
           1,
-          null,
           1,
           1,
           1,
@@ -987,6 +988,6 @@
         ]
       }
     },
-    "timestamp": 1600877872
+    "timestamp": 1600879020
   }
 }
