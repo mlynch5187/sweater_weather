@@ -3,39 +3,33 @@ class Direction
               :start_coordinates,
               :end_location,
               :end_coordinates,
-              :duration,
-              :unix_time
+              :travel_time
 
   def initialize(route_attributes)
     @start_location = route_start_location(route_attributes)
     @start_coordinates = route_start_coords(route_attributes)
     @end_location = route_end_location(route_attributes)
     @end_coordinates = route_end_coords(route_attributes)
-    @duration = route_travel_time(route_attributes)
-    @unix_time = route_time_unix(route_attributes)
+    @travel_time = route_travel_time(route_attributes)
   end
 
   def route_start_location(route_attributes)
-    route_attributes[:route][0][:legs][0][:start_address]
+    route_attributes[:route][:locations][0][:adminArea5]
   end
 
   def route_end_location(route_attributes)
-    route_attributes[:route][0][:legs][0][:end_address]
+    route_attributes[:route][:locations][1][:adminArea5]
   end
 
   def route_start_coords(route_attributes)
-    route_attributes[:route][0][:legs][0][:start_location]
+    route_attributes[:route][:boundingBox][:lr]
   end
 
   def route_end_coords(route_attributes)
-    route_attributes[:route][0][:legs][0][:end_location]
-  end
-
-  def route_time_unix(route_attributes)
-    route_attributes[:route][0][:legs][0][:duration][:value]
+    route_attributes[:route][:boundingBox][:ul]
   end
 
   def route_travel_time(route_attributes)
-    route_attributes[:route][0][:legs][0][:duration][:text]
+    route_attributes[:route][:formattedTime]
   end
 end

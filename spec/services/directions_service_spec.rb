@@ -2,22 +2,18 @@ require 'rails_helper'
 
 describe 'MapQuest Directions API' do
   it 'Calculates trip duration' do
-    conn = Faraday.new('http://www.mapquestapi.com/')
-    response = conn.get('directions/v2/route') do |f|
-      f.params[:from] = 'denver,co'
-      f.params[:to] = 'pueblo,co'
-      f.params[:key] = ENV['MAPQUEST_KEY']
-    end
+    params = { 'from' => 'denver,co', 'to' => 'pueblo,co' }
 
-    json = JSON.parse(response.body, symbolize_names: true)
+    response = DirectionsService.new.call(params)
 
-    expect(json[:route]).to have_key(:formattedTime)
-    expect(json[:route][:formattedTime]).to eq('01:43:57')
+    expect(response.end_coordinates).to have_key(:lng)
+    expect(response.end_coordinates[:lng]).to eq(-104.98761)
 
-    expect(json[:route][:locations][0]).to have_key(:adminArea5)
-    expect(json[:route][:locations][0][:adminArea5]).to eq("Denver")
+    expect(response.end_coordinates).to have_key(:lat)
+    expect(response.end_coordinates[:lat]).to eq(39.738453)
 
-    expect(json[:route][:locations][1]).to have_key(:adminArea5)
-    expect(json[:route][:locations][1][:adminArea5]).to eq("Pueblo")
+    expect(response.end_location).to eq('Pueblo')
+    expect(response.start_location).to eq('Denver')
+    expect(response.travel_time).to eq('01:43:57')
   end
 end
