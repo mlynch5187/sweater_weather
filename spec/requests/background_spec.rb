@@ -21,7 +21,6 @@ describe "Pexels API" do
 
     json = JSON.parse(response.body, symbolize_names: true)
 
-    expect(response.status).to_not eq(200)
     expect(json[:errors]).to eq('Please try again')
   end
 end
