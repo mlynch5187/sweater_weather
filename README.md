@@ -23,11 +23,13 @@ APIs Utilized: OpenWeather API, MapQuest API, Pexels API
 GET /api/v1/forecast
 
 Example: GET /api/v1/forecast?location=denver,co
+
 Required: location as [city,state]
 
 ### Get A Location's Picture
 
 GET /api/v1/backgrounds 
+
 Example: GET /api/v1/backgrounds?location=denver,co
 
 Required: location as [city,state]
@@ -35,6 +37,7 @@ Required: location as [city,state]
 ### New User Registration
 
 POST /api/v1/users
+
 Example: POST /api/v1/users?email=user@example.com&password=password123&password_confirmation=password123
 
 Required: email, password, password_confirmation
@@ -42,12 +45,15 @@ Required: email, password, password_confirmation
 ### Registered User Login
 
 POST /api/v1/sessions
+
 Example: POST /api/v1/sessions?email=user@example.com&password=password123
 
 Required: email, password
 
 ### Get Road Trip Information (Coming Soon)
+
 POST /api/v1/road_trip
+
 Example: POST /api/v1/road_trip?origin=denver,co&destination=pueblo,co&api_key=abc123
 
 Required: origin destination api_key as [city, city, api_key]
