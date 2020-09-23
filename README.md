@@ -47,7 +47,7 @@ Example: POST /api/v1/sessions?email=user@example.com&password=password123
 
 Required: email, password
 
-## Get Road Trip Information (Coming Soon)
+### Get Road Trip Information (Coming Soon)
 POST /api/v1/road_trip
 Example: POST /api/v1/road_trip?origin=denver,co&destination=pueblo,co&api_key=abc123
 
