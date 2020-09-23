@@ -4,7 +4,7 @@ describe 'MapQuest Directions API' do
   it 'Calculates trip duration' do
     params = { 'from' => 'denver,co', 'to' => 'pueblo,co' }
 
-    response = DirectionsService.new.call(params)
+    response = DirectionsService.new.find_route(params)
 
     expect(response.end_coordinates).to have_key(:lng)
     expect(response.end_coordinates[:lng]).to eq(-104.98761)

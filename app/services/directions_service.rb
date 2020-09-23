@@ -1,5 +1,5 @@
 class DirectionsService < BaseService
-  def call(params)
+  def find_route(params)
     response = conn('http://www.mapquestapi.com/').get('directions/v2/route') do |f|
       f.params[:key] = ENV['MAPQUEST_KEY']
       f.params[:from] = params['from']
