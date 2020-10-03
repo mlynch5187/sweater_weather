@@ -1,6 +1,10 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2 
+  
+  dependencies:
+  pre:
+    - gem install bundler
 
 jobs:
   build:
@@ -11,5 +15,5 @@ jobs:
       - checkout
       - run:
           name: Which bundler?
-          command: bundle -v
+          command: gem install bundler
       - ruby/bundle-install
