@@ -11,5 +11,5 @@ jobs:
       - checkout
       - run:
           name: Which bundler?
-          command: gem install bundler -v 1.10.6 && gem install rubygems-bundler && gem regenerate_binstubs
+          command: gem install bundler -v 1.10.6
       - ruby/bundle-install
