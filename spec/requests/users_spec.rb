@@ -22,7 +22,6 @@ describe "Users spec" do
   end
 
   it "User email must be unique" do
-
     create(:user, email: "123@example.com")
 
     params = { "email": "123@example.com",
@@ -38,7 +37,6 @@ describe "Users spec" do
   end
 
   it "User password must be valid" do
-
     create(:user, email: "123@example.com")
 
     params = { "email": "whatever@example.com",
