@@ -1,6 +1,6 @@
 # Sweater Weather
 
-Sweater Weather is a Rails API that retrieves current and future weather conditions for a location, along with directions for planned trips. The goal of this application is to render API results as json for a frontend app to consume.
+Sweater Weather is a Rails API that retrieves current and future weather conditions for a location, along with directions for planned trips. The goal of this application is to render API results as json for a frontend app to consume. APIs were tested using the Postman application.
 
 APIs Utilized: OpenWeather API, MapQuest API, Pexels API
 
